@@ -1,0 +1,132 @@
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background: inherit;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    overflow: visible;
+}
+
+.a11y-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.container {
+    background-color: #F9E2AF;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 10px solid rgba(0, 0, 1, 0.1);
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgb(168, 163, 163);
+}
+
+.cal-area {
+    border: 10px solid rgba(0, 0, 0, 0.1);
+    text-align: right;
+    display: block;
+    width: 95%;
+    height: 150px;
+    line-height: 150px;
+    margin: 20px auto;
+    border-radius: 30px;
+    font-size: 35px;
+    box-shadow: inset 0px 0px 5px rgb(168, 163, 163);
+}
+
+.calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* gap: 20px; */
+    text-align: center;
+}
+.calculator .utils {
+    grid-column: 1 / 5;
+}
+.calculator .result {
+    grid-column: 1 / 5;
+}
+.calculator .number {
+    grid-column: 1 / 4;
+}
+.calculator .tffao {
+    grid-column: 4 / 5;
+    width: 100%;
+}
+
+button {
+    border-radius: 50%;
+    box-shadow: 3px 2px 0 rgb(116, 114, 114);
+    height: 80px;
+    border: 8px solid rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    font-weight: bold;
+}
+button:active {
+    box-shadow: none;
+}
+
+.result button {
+    width: 40%;
+    color: white;
+    background-color: #351674;
+    border-radius: 50px;
+}
+.result button:hover {
+    background-color: #3a2a5b;
+}
+
+.utils {
+    margin-top: 20px;
+}
+.utils button {
+    width: 22%;
+    background-color: #77037B;
+    color: white;
+}
+.utils button:hover {
+    background-color: #6d2470;
+}
+
+.number {
+    margin-top: 10px;
+}
+.number button {
+    width: 28%;
+    margin: 3px;
+    background-color: #009FBD;
+}
+.number button:hover {
+    background-color: #4c9faf;
+}
+
+
+
+.tffao {
+    margin-top: 10px;
+}
+.tffao button {
+    width: 85%;
+    margin: 3px;
+    margin-left: -20px;
+    /* margin-left: -30px; */
+    background-color: #77037B;
+    color: white;
+}
+.tffao button:hover {
+    background-color: #6d2470;
+}

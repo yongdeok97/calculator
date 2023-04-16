@@ -21,13 +21,18 @@ class Stack {
 
 let ConToRPNExp = (exp) => {
   let stack = new Stack();
+  let tempNum = 0;
   let conExp = [];
+  let digit = 10;
 
-  for (let i = 0; i < exp.length; i++) {
+  for (let i = 0; i <= exp.length; i++) {
     if (Number.isNaN(Number(exp[i])) === false) {
       if (exp[i] === " ") continue;
-      conExp.push(exp[i]);
+      tempNum = tempNum * digit + parseInt(exp[i]);
     } else {
+      console.log(tempNum);
+      conExp.push(tempNum);
+      tempNum = 0;
       switch (exp[i]) {
         case "(":
           stack.push("(");
@@ -52,7 +57,6 @@ let ConToRPNExp = (exp) => {
   }
   while (!stack.isEmpty()) conExp.push(stack.pop());
   return conExp;
-  // exp = conExp;
 };
 
 let GetOpPrec = (op) => {
@@ -108,6 +112,54 @@ let EvalRPNExp = (exp) => {
   return stack.pop();
 };
 
-let main = (function () {
-  console.log(EvalRPNExp(ConToRPNExp(")(1+2)*3")));
-})();
+// let main = (function () {
+//   console.log(EvalRPNExp(ConToRPNExp(")(1+2)*3")));
+// })();
+
+///////////////////////////
+const calArea = document.querySelector(".cal-area");
+const resultButton = document.querySelectorAll(".result button");
+const utilsButton = document.querySelectorAll(".utils button");
+const numButton = document.querySelectorAll(".number button");
+const tffaoButton = document.querySelectorAll(".tffao button");
+let exp = [];
+
+resultButton.forEach((element) => {
+  element.addEventListener("click", () => {
+    if (element.textContent == "AC") {
+      calArea.value = "";
+      exp = [];
+    }
+    // not yet
+    else {
+      exp = [EvalRPNExp(ConToRPNExp(exp))];
+      calArea.value = exp;
+    }
+  });
+});
+
+utilsButton.forEach((element) => {
+  element.addEventListener("click", () => {
+    // if(element.textContent = '+/-') {
+    //   // 일단 이건 생각을 좀 해보자
+    // }
+    // else {
+    calArea.value = calArea.value + element.textContent;
+    exp.push(element.textContent);
+    // }
+  });
+});
+
+numButton.forEach((element) => {
+  element.addEventListener("click", () => {
+    calArea.value = calArea.value + element.textContent;
+    exp.push(element.textContent);
+  });
+});
+
+tffaoButton.forEach((element) => {
+  element.addEventListener("click", () => {
+    calArea.value = calArea.value + element.textContent;
+    exp.push(element.textContent);
+  });
+});
